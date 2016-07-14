@@ -1,5 +1,6 @@
 package com.bakigoal.vaadin.ui;
 
+import com.bakigoal.vaadin.view.ButtonsView;
 import com.bakigoal.vaadin.view.ComponentsView;
 import com.bakigoal.vaadin.view.DateFieldView;
 import com.bakigoal.vaadin.view.NotificationsView;
@@ -55,6 +56,7 @@ public class MyVaadinUI extends UI {
     navigationBar.addComponent(createNavigationButton("Validator", ValidatorView.VIEW_NAME));
     navigationBar.addComponent(createNavigationButton("Components", ComponentsView.VIEW_NAME));
     navigationBar.addComponent(createNavigationButton("TextFields", TextFieldsView.VIEW_NAME));
+    navigationBar.addComponent(createNavigationButton("Buttons", ButtonsView.VIEW_NAME));
 
     root.addComponent(navigationBar);
 
