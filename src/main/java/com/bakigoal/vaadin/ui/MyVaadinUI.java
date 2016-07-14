@@ -1,11 +1,16 @@
 package com.bakigoal.vaadin.ui;
 
+import com.bakigoal.vaadin.view.DateFieldView;
+import com.bakigoal.vaadin.view.NotificationsView;
+import com.bakigoal.vaadin.view.ResourcesView;
 import com.bakigoal.vaadin.view.UIScopedView;
 import com.bakigoal.vaadin.view.ViewScopedView;
+import com.vaadin.annotations.PreserveOnRefresh;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.VaadinSession;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.spring.navigator.SpringViewProvider;
 import com.vaadin.ui.Button;
@@ -23,6 +28,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @SpringUI
 @Title("My UI")
 @Theme("valo")
+@PreserveOnRefresh
 public class MyVaadinUI extends UI {
 
   @Autowired
@@ -38,8 +44,13 @@ public class MyVaadinUI extends UI {
 
     final CssLayout navigationBar = new CssLayout();
     navigationBar.addStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
+
     navigationBar.addComponent(createNavigationButton("UI Scoped View", UIScopedView.VIEW_NAME));
     navigationBar.addComponent(createNavigationButton("View Scoped View", ViewScopedView.VIEW_NAME));
+    navigationBar.addComponent(createNavigationButton("Resources", ResourcesView.VIEW_NAME));
+    navigationBar.addComponent(createNavigationButton("Notifications", NotificationsView.VIEW_NAME));
+    navigationBar.addComponent(createNavigationButton("Date Field", DateFieldView.VIEW_NAME));
+
     root.addComponent(navigationBar);
 
     final Panel viewContainer = new Panel();
@@ -49,6 +60,8 @@ public class MyVaadinUI extends UI {
 
     Navigator navigator = new Navigator(this, viewContainer);
     navigator.addProvider(viewProvider);
+
+    root.addComponent(new Button("Logout Page", event -> getPage().setLocation(MyLogoutUI.UI_NAME)));
   }
 
   private Component createNavigationButton(String caption, String viewName) {
