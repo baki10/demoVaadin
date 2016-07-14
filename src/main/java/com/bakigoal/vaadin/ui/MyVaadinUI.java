@@ -1,16 +1,18 @@
 package com.bakigoal.vaadin.ui;
 
+import com.bakigoal.vaadin.view.ComponentsView;
 import com.bakigoal.vaadin.view.DateFieldView;
 import com.bakigoal.vaadin.view.NotificationsView;
 import com.bakigoal.vaadin.view.ResourcesView;
+import com.bakigoal.vaadin.view.TextFieldsView;
 import com.bakigoal.vaadin.view.UIScopedView;
+import com.bakigoal.vaadin.view.ValidatorView;
 import com.bakigoal.vaadin.view.ViewScopedView;
 import com.vaadin.annotations.PreserveOnRefresh;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.VaadinSession;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.spring.navigator.SpringViewProvider;
 import com.vaadin.ui.Button;
@@ -50,6 +52,9 @@ public class MyVaadinUI extends UI {
     navigationBar.addComponent(createNavigationButton("Resources", ResourcesView.VIEW_NAME));
     navigationBar.addComponent(createNavigationButton("Notifications", NotificationsView.VIEW_NAME));
     navigationBar.addComponent(createNavigationButton("Date Field", DateFieldView.VIEW_NAME));
+    navigationBar.addComponent(createNavigationButton("Validator", ValidatorView.VIEW_NAME));
+    navigationBar.addComponent(createNavigationButton("Components", ComponentsView.VIEW_NAME));
+    navigationBar.addComponent(createNavigationButton("TextFields", TextFieldsView.VIEW_NAME));
 
     root.addComponent(navigationBar);
 
