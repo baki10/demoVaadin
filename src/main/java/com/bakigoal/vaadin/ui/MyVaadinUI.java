@@ -3,10 +3,15 @@ package com.bakigoal.vaadin.ui;
 import com.bakigoal.vaadin.view.ButtonsView;
 import com.bakigoal.vaadin.view.ComponentsView;
 import com.bakigoal.vaadin.view.DateFieldView;
+import com.bakigoal.vaadin.view.MenuBarView;
 import com.bakigoal.vaadin.view.NotificationsView;
+import com.bakigoal.vaadin.view.ProgressBarView;
 import com.bakigoal.vaadin.view.ResourcesView;
+import com.bakigoal.vaadin.view.TableView;
 import com.bakigoal.vaadin.view.TextFieldsView;
+import com.bakigoal.vaadin.view.TreeView;
 import com.bakigoal.vaadin.view.UIScopedView;
+import com.bakigoal.vaadin.view.UploadView;
 import com.bakigoal.vaadin.view.ValidatorView;
 import com.bakigoal.vaadin.view.ViewScopedView;
 import com.vaadin.annotations.PreserveOnRefresh;
@@ -57,8 +62,19 @@ public class MyVaadinUI extends UI {
     navigationBar.addComponent(createNavigationButton("Components", ComponentsView.VIEW_NAME));
     navigationBar.addComponent(createNavigationButton("TextFields", TextFieldsView.VIEW_NAME));
     navigationBar.addComponent(createNavigationButton("Buttons", ButtonsView.VIEW_NAME));
+    navigationBar.addComponent(createNavigationButton("Table", TableView.VIEW_NAME));
+    navigationBar.addComponent(createNavigationButton("Tree", TreeView.VIEW_NAME));
 
     root.addComponent(navigationBar);
+
+    final CssLayout navigationBar2 = new CssLayout();
+    navigationBar2.addStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
+
+    navigationBar2.addComponent(createNavigationButton("MenuBar", MenuBarView.VIEW_NAME));
+    navigationBar2.addComponent(createNavigationButton("Upload", UploadView.VIEW_NAME));
+    navigationBar2.addComponent(createNavigationButton("ProgressBar", ProgressBarView.VIEW_NAME));
+
+    root.addComponent(navigationBar2);
 
     final Panel viewContainer = new Panel();
     viewContainer.setSizeFull();
