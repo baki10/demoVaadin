@@ -6,6 +6,7 @@ import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Panel;
 import com.vaadin.ui.Tree;
 import com.vaadin.ui.VerticalLayout;
 
@@ -22,11 +23,35 @@ public class TreeView extends VerticalLayout implements View {
   @PostConstruct
   void init() {
     HorizontalLayout layout = new HorizontalLayout();
-    layout.addComponent(getTree());
+    Tree tree = getTree();
+    layout.addComponent(tree);
+
+    Panel panel = new Panel("Panel");
+    layout.addComponent(panel);
     addComponent(layout);
+
+    VerticalLayout content = new VerticalLayout();
+    panel.setContent(content);
+    content.setSizeFull();
+
+    Label question = new Label("Where is the cat?");
+    content.addComponent(question);
+
+    Label answer = new Label("I don't know!");
+    answer.setImmediate(true);
+    content.addComponent(answer);
+
+    tree.addItemClickListener(event -> {
+      Object value = tree.getValue();
+      String ans = "I don't know!";
+      if(value != null){
+        ans = "In " + value.toString();
+      }
+      answer.setValue(ans);
+    });
   }
 
-  private Component getTree() {
+  private Tree getTree() {
     final Object[][] planets = new Object[][]{
         new Object[]{"Mercury"},
         new Object[]{"Venus"},
@@ -59,6 +84,7 @@ public class TreeView extends VerticalLayout implements View {
         tree.expandItemsRecursively(planet);
       }
     }
+    tree.setImmediate(true);
     return tree;
   }
 

@@ -3,6 +3,8 @@ package com.bakigoal.vaadin.ui;
 import com.bakigoal.vaadin.view.ButtonsView;
 import com.bakigoal.vaadin.view.ComponentsView;
 import com.bakigoal.vaadin.view.DateFieldView;
+import com.bakigoal.vaadin.view.FontAwesomeView;
+import com.bakigoal.vaadin.view.FormLayoutView;
 import com.bakigoal.vaadin.view.MenuBarView;
 import com.bakigoal.vaadin.view.NotificationsView;
 import com.bakigoal.vaadin.view.ProgressBarView;
@@ -73,6 +75,8 @@ public class MyVaadinUI extends UI {
     navigationBar2.addComponent(createNavigationButton("MenuBar", MenuBarView.VIEW_NAME));
     navigationBar2.addComponent(createNavigationButton("Upload", UploadView.VIEW_NAME));
     navigationBar2.addComponent(createNavigationButton("ProgressBar", ProgressBarView.VIEW_NAME));
+    navigationBar2.addComponent(createNavigationButton("FormLayout", FormLayoutView.VIEW_NAME));
+    navigationBar2.addComponent(createNavigationButton("FontAwesome", FontAwesomeView.VIEW_NAME));
 
     root.addComponent(navigationBar2);
 
