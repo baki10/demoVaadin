@@ -1,7 +1,9 @@
 package com.bakigoal.vaadin.ui;
 
 import com.bakigoal.vaadin.view.AccordionView;
+import com.bakigoal.vaadin.view.BeanView;
 import com.bakigoal.vaadin.view.ButtonsView;
+import com.bakigoal.vaadin.view.ChartView;
 import com.bakigoal.vaadin.view.ComponentsView;
 import com.bakigoal.vaadin.view.DateFieldView;
 import com.bakigoal.vaadin.view.FontAwesomeView;
@@ -81,6 +83,8 @@ public class MyVaadinUI extends UI {
     navigationBar2.addComponent(createNavigationButton("FontAwesome", FontAwesomeView.VIEW_NAME));
     navigationBar2.addComponent(createNavigationButton("TabSheet", TabSheetView.VIEW_NAME));
     navigationBar2.addComponent(createNavigationButton("Accordion", AccordionView.VIEW_NAME));
+    navigationBar2.addComponent(createNavigationButton("BeanView", BeanView.VIEW_NAME));
+    navigationBar2.addComponent(createNavigationButton("Chart", ChartView.VIEW_NAME));
 
     root.addComponent(navigationBar2);
 

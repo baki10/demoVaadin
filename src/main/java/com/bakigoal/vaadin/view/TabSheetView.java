@@ -1,5 +1,6 @@
 package com.bakigoal.vaadin.view;
 
+import com.bakigoal.vaadin.mvp.view.CalculatorViewImpl;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.FontAwesome;
@@ -35,6 +36,7 @@ public class TabSheetView extends VerticalLayout implements View {
     tab2.addComponent(new Label("Label in 2nd tab"));
     tab2.setCaption("Tab2");
     tabSheet.addTab(tab2).setIcon(FontAwesome.WIFI);
+    tab2.addComponent(new CalculatorViewImpl());
   }
 
   @Override
